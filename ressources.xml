@@ -1,25 +1,25 @@
 <Objects>
-    <WoodLog name="Wood Log" basic="true"></WoodLog>
-    <ScrapMetal name="Scrap Metal" basic="true"></ScrapMetal>
-    <WoodPlank name="Wood Plank" basic="false">
-    	<WoodLog name="Wood Log" basic="true" amount="0.5"></WoodLog>
-    </WoodPlank>
-    <WoodStick name="Wood Stick" basic="false">
-    	<WoodPlank name="Wood Plank" basic="false" amount="1"></WoodPlank>
-    </WoodStick>
-    <MetalBracket name="Metal Bracket" basic="false">
-    	<ScrapMetal name="Scrap Metal" amount="1" basic="true"></ScrapMetal>
-    </MetalBracket>
-    <MetalShard name="Metal Shard" basic="false">
-    	<ScrapMetal name="Scrap Metal" amount="1" basic="true"></ScrapMetal>
-    </MetalShard>
-    <Nail name="Nail" basic="false">
-    	<MetalShard name="Metal Shard" amount="0.25" basic="false"></MetalShard>
-    </Nail>
-    <MetalBar name="Metal Bar" basic="false">
-        <ScrapMetal name="Scrap Metal" amount="2" basic="true"></ScrapMetal>
-    </MetalBar>
-    <MetalSheet name="Meta Sheet" basic="false">
-        <MetalBar name="Metal Bar" amount="2" basic="false"></MetalBar>
-    </MetalSheet>
+<WoodLog name="Wood Log" basic="true"></WoodLog>
+<ScrapMetal name="Scrap Metal" basic="true"></ScrapMetal>
+<WoodPlank name="Wood Plank" basic="false">
+<WoodLog name="Wood Log" basic="true" amount="0.5"></WoodLog>
+</WoodPlank>
+<WoodStick name="Wood Stick" basic="false">
+<WoodPlank name="Wood Plank" basic="false" amount="1"></WoodPlank>
+</WoodStick>
+<MetalBracket name="Metal Bracket" basic="false">
+<ScrapMetal name="Scrap Metal" amount="1" basic="true"></ScrapMetal>
+</MetalBracket>
+<MetalShard name="Metal Shard" basic="false">
+<ScrapMetal name="Scrap Metal" amount="1" basic="true"></ScrapMetal>
+</MetalShard>
+<Nail name="Nail" basic="false">
+<MetalShard name="Metal Shard" amount="0.25" basic="false"></MetalShard>
+</Nail>
+<MetalBar name="Metal Bar" basic="false">
+<ScrapMetal name="Scrap Metal" amount="2" basic="true"></ScrapMetal>
+</MetalBar>
+<MetalSheet name="Meta Sheet" basic="false">
+<MetalBar name="Metal Bar" amount="2" basic="false"></MetalBar>
+</MetalSheet>
 </Objects>
