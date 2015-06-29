@@ -27,4 +27,20 @@
 		<MetalBracket name="Metal Bracket" amount="4" basic="false"></MetalBracket>
 		<Nail name="Nail" amount="4" basic="false"></Nail>
 	</StorageContainer>
+	<BasicShack name="Basic Shack" basic="false">
+		<WoodPlank name="Wood Plank" amount="20" basic="false"></WoodPlank>
+		<WoodStick name="Wood Stick" amount="10" basic="false"></WoodStick>
+	</BasicShack>
+	<DeckFoundation name="Deck Foundation" basic="false">
+		<WoodLog name="Wood Log" amount="4" basic="true"></WoodLog>
+		<WoodPlank name="Wood Plank" amount="16" basic="false"></WoodPlank>
+		<MetalBracket name="Metal Bracket" amount="8" basic="false"></MetalBracket>
+		<Nail name="Nail" amount="20" basic="false"></Nail>
+	</DeckFoundation>
+	<LargeShelter name="Large Shelter" basic="false">
+		<MetalSheet name="Metal Sheet" amount="4" basic="false"></MetalSheet>
+		<WoodPlank name="Wood Plank" amount="8" basic="false"></WoodPlank>
+		<MetalBracket name="Metal Bracket" amount="8" basic="false"></MetalBracket>
+		<Nail name="Nail" amount="16" basic="false"></Nail>
+	</LargeShelter>
 </Objects>

@@ -60,8 +60,8 @@ function loadXMLDoc(filename)
 	return xhttp.responseXML;
 }
 
-var xmlDoc = loadXMLString(xml);
-//var xmlDoc = loadXMLDoc("ressources.xml");
+//var xmlDoc = loadXMLString(xml);
+var xmlDoc = loadXMLDoc("ressources.xml");
 var objectNodes = xmlDoc.childNodes[0];
 var objectArray = [];
 var objectsList = document.getElementById("objectsList");
