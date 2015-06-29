@@ -60,7 +60,7 @@ function loadXMLDoc(filename)
 }
 
 //var xmlDoc = loadXMLString(xml);
-var xmlDoc = loadXmlDoc("ressources.xml");
+var xmlDoc = loadXMLDoc("ressources.xml");
 var objectNodes = xmlDoc.childNodes[0];
 var objectArray = [];
 
