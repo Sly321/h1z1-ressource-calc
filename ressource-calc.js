@@ -1,31 +1,32 @@
 var xml = '<Objects>\
-<WoodLog name="Wood Log" basic="true">\
-</WoodLog>\
-<ScrapMetal name="Scrap Metal" basic="true">\
-</ScrapMetal>\
+<WoodLog name="Wood Log" basic="true"></WoodLog>\
+<ScrapMetal name="Scrap Metal" basic="true"></ScrapMetal>\
 <WoodPlank name="Wood Plank" basic="false">\
-<WoodLog name="Wood Log" basic="true" amount="0.5"></WoodLog>\
+	<WoodLog name="Wood Log" basic="true" amount="0.5"></WoodLog>\
 </WoodPlank>\
 <WoodStick name="Wood Stick" basic="false">\
-<WoodPlank name="Wood Plank" basic="false" amount="1"></WoodPlank>\
+	<WoodPlank name="Wood Plank" basic="false" amount="1"></WoodPlank>\
 </WoodStick>\
 <MetalBracket name="Metal Bracket" basic="false">\
 <ScrapMetal name="Scrap Metal" amount="1" basic="true"></ScrapMetal>\
 </MetalBracket>\
 <MetalShard name="Metal Shard" basic="false">\
-<ScrapMetal name="Scrap Metal" amount="1" basic="true"></ScrapMetal>\
+	<ScrapMetal name="Scrap Metal" amount="1" basic="true"></ScrapMetal>\
 </MetalShard>\
 <Nail name="Nail" basic="false">\
-<MetalShard name="Metal Shard" amount="0.25" basic="false"></MetalShard>\
+	<MetalShard name="Metal Shard" amount="0.25" basic="false"></MetalShard>\
 </Nail>\
 <MetalBar name="Metal Bar" basic="false">\
-<ScrapMetal name="Scrap Metal" amount="2" basic="true">\
-</ScrapMetal>\
+	<ScrapMetal name="Scrap Metal" amount="2" basic="true"></ScrapMetal>\
 </MetalBar>\
-<MetalSheet name="Meta Sheet" basic="false">\
-<MetalBar name="Metal Bar" amount="2" basic="false">\
-</MetalBar>\
+<MetalSheet name="Metal Sheet" basic="false">\
+	<MetalBar name="Metal Bar" amount="2" basic="false"></MetalBar>\
 </MetalSheet>\
+<StorageContainer name="Storage Container" basic="false">\
+	<WoodPlank name="Wood Plank" amount="6" basic="false"></WoodPlank>\
+	<MetalBracket name="Metal Bracket" amount="4" basic="false"></MetalBracket>\
+	<Nail name="Nail" amount="4" basic="false"></Nail>\
+</StorageContainer>\
 </Objects>';
 
 function loadXMLString(txt) 
@@ -66,9 +67,9 @@ var objectArray = [];
 
 
 var objectTree = function(objectNodes) {
-	for(var i = 0; i < objectNodes.childNodes.length; i++)
+	for(var i = 0; i < objectNodes.children.length; i++)
 	{
-		object = objectNodes.childNodes[i];
+		object = objectNodes.children[i];
 		if(object.nodeName == "#text") {
 
 		} else {
@@ -77,11 +78,8 @@ var objectTree = function(objectNodes) {
 			document.write(object.getAttribute("name"));
 			if(object.hasChildNodes())
 			{
-				for(var j = 0; j < object.childNodes.length; j++)
-				{
-					var array = getMaterial(object)
-					document.write(" || SM: " + array[1] + " WL: " + array[0]);
-				}
+				var array = getMaterial(object)
+				document.write(" || SM: " + array[1] + " WL: " + array[0]);
 			}
 			else if(object.getAttribute("basic") == "true")
 			{
@@ -96,14 +94,14 @@ var objectTree = function(objectNodes) {
 var getMaterial = function(materials) {
 	var woodlog = 0;
 	var scrapmetal = 0;
-	for(var j = 0; j < materials.childNodes.length; j++)
-	{
-		var material = materials.childNodes[j];
+	for (var i = 0; i < materials.children.length; i++) {
+		var material = materials.children[i];
 		if(material.nodeName == "#text") {
 
 		} else {
 			var amount = 0;
 			var name = material.getAttribute("name");
+			console.log(name);
 			document.write(" > ");
 			if(material.getAttribute("amount") != null)
 			{
@@ -114,7 +112,7 @@ var getMaterial = function(materials) {
 			if(material.getAttribute("basic") == "false")
 			{
 				var array = getMaterial(getObjectWithNodeName(name));
-				woodlog +=  parseFloat(woodlog + ((array[0]  == 0 ? "" : array[0]) * amount));
+				woodlog =  parseFloat(woodlog + ((array[0]  == 0 ? "" : array[0]) * amount));
 				scrapmetal =  parseFloat(scrapmetal + ((array[1]  == 0 ? "" : array[1]) * amount));
 			}
 			else if(material.getAttribute("basic") == "true")
@@ -129,7 +127,7 @@ var getMaterial = function(materials) {
 				}
 			}
 		}
-	}
+	};
 	var matsArray = [woodlog, scrapmetal];
 	return matsArray;
 }
@@ -141,7 +139,6 @@ var getObjectWithNodeName = function(name) {
 		{
 			return objectArray[i][1];
 		}
-		console.log(objectArray[i][0]);
 	}
 	return false;
 }

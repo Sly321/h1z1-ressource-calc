@@ -5,11 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content=""><meta name="author" content="">
-    <!--link rel="shortcut icon" href="assets/ico/favicon.ico">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/default.css" rel="stylesheet">
-    <script type="text/javascript" src="js/jquery.js"></script!-->
-    <script src="ressource-calc.js"></script>
+    <link href="css/style.css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery.js"></script>
     <title>H1Z1 Calculator</title>
     <style style="display:none">
       body {
@@ -19,13 +18,39 @@
     </style>
   </head>
   <body>
-      <div id="header">
-        <nav>
-          <li class="fork"><a href="https://github.com/Sly321/h1z1-ressource-calc">View On GitHub</a></li>
-          <li class="downloads"><a href="https://github.com/Sly321/h1z1-ressource-calc/zipball/master">ZIP</a></li>
-          <li class="downloads"><a href="https://github.com/Sly321/h1z1-ressource-calc/tarball/master">TAR</a></li>
-          <li class="title">DOWNLOADS</li>
-        </nav>
+      <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+         <div class="navbar-header">
+            <ul class="nav navbar-nav">
+        <li>
+          <a class="navbar-brand" href="index.html">
+            H1Z1
+          </a>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle navbar-brand" href="#">
+            Download
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="https://github.com/Sly321/h1z1-ressource-calc/zipball/master">ZIP</a></li>
+            <li><a href="https://github.com/Sly321/h1z1-ressource-calc/tarball/master">TAR</a></li>
+          </ul>
+        </li>
+        <li>
+          <a class="navbar-brand" href="https://github.com/Sly321/h1z1-ressource-calc">View On GitHub</a>
+        </li>
+      </ul>
+      </nav>
+
+    <div class="jumbotron">
+      <div class="container">
+        <h1>H1Z1 Calc</h1>
       </div>
+    </div>
+    
+    <hr>
+    <footer>
+      <p>&copy; Sven Liebig &middot; <a href="impressum.html">Impressum</a></p>
+    </footer>
+    <script src="ressource-calc.js"></script>
   </body>
 </html>

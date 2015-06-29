@@ -22,4 +22,9 @@
 <MetalSheet name="Meta Sheet" basic="false">
 <MetalBar name="Metal Bar" amount="2" basic="false"></MetalBar>
 </MetalSheet>
+<StorageContainer>
+	<WoodPlank name="Wood Plank" amount="6" basic="false"></WoodPlank>
+	<MetalBracket name="Metal Bracket" amount="4" basic="false"></MetalBracket>
+	<Nail name="Nail" amount="4" basic="false"></Nail>
+</StorageContainer>
 </Objects>
