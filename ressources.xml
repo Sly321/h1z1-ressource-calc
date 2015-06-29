@@ -19,7 +19,7 @@
 	<MetalBar name="Metal Bar" basic="false">
 		<ScrapMetal name="Scrap Metal" amount="2" basic="true"></ScrapMetal>
 	</MetalBar>
-	<MetalSheet name="Meta Sheet" basic="false">
+	<MetalSheet name="Metal Sheet" basic="false">
 		<MetalBar name="Metal Bar" amount="2" basic="false"></MetalBar>
 	</MetalSheet>
 	<StorageContainer name="Storage Container" basic="false">
