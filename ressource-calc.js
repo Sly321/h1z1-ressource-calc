@@ -88,6 +88,7 @@ var objectTree = function(objectNodes) {
 var getMaterial = function(materials) {
 	var woodlog = 0;
 	var scrapmetal = 0;
+	console.log("Neu Drinne " + materials.getAttribute("name"));
 	for (var i = 0; i < materials.children.length; i++) {
 		var material = materials.children[i];
 		if(material.nodeName == "#text") {
