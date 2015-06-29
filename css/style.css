@@ -13,13 +13,23 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
 	margin-top: 0;
 }
 
-img { max-width: 100%; }
+.thumb { 
+   width: 25px;
+   height: 25px; 
+}
+
+#objectsList, #currentList {
+   padding: 0px;
+}
+
+.addBtn {
+   float: right;
+}
 
 .container { max-width: 970px;}
 
 .panel {
    margin: 50px auto;
-   width: 500px;
 }
 
 .form-control { margin-bottom: 15px; }
@@ -56,3 +66,4 @@ img { max-width: 100%; }
   font-size: 2em;
   text-align: center;
 }
+
