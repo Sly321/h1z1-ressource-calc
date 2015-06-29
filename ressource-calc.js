@@ -77,6 +77,7 @@ var objectTree = function(objectNodes) {
 			objectArray.push([object.getAttribute("name"), object]);
 			if(object.hasChildNodes())
 			{
+				console.log("Neu " + object.getAttribute("name"));
 				var array = getMaterial(object)
 			}
 		}
