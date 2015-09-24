@@ -23,24 +23,83 @@
 		<MetalBar name="Metal Bar" amount="2" basic="false"></MetalBar>
 	</MetalSheet>
 	<StorageContainer name="Storage Container" basic="false">
-		<WoodPlank name="Wood Plank" amount="6" basic="false"></WoodPlank>
-		<MetalBracket name="Metal Bracket" amount="4" basic="false"></MetalBracket>
-		<Nail name="Nail" amount="4" basic="false"></Nail>
+		<WoodPlank name="Wood Plank" amount="4" basic="false"></WoodPlank>
+		<MetalBracket name="Metal Bracket" amount="1" basic="false"></MetalBracket>
+		<Nail name="Nail" amount="1" basic="false"></Nail>
 	</StorageContainer>
-	<BasicShack name="Basic Shack" basic="false">
-		<WoodPlank name="Wood Plank" amount="20" basic="false"></WoodPlank>
-		<WoodStick name="Wood Stick" amount="10" basic="false"></WoodStick>
-	</BasicShack>
 	<DeckFoundation name="Deck Foundation" basic="false">
 		<WoodLog name="Wood Log" amount="4" basic="true"></WoodLog>
 		<WoodPlank name="Wood Plank" amount="16" basic="false"></WoodPlank>
 		<MetalBracket name="Metal Bracket" amount="8" basic="false"></MetalBracket>
 		<Nail name="Nail" amount="20" basic="false"></Nail>
 	</DeckFoundation>
-	<LargeShelter name="Large Shelter" basic="false">
+	<FoundationExpansion name="Foundation Expansion" basic="false">
+		<WoodLog name="Wood Log" amount="2" basic="true"></WoodLog>
+		<WoodPlank name="Wood Plank" amount="8" basic="false"></WoodPlank>
+		<MetalBracket name="Metal Bracket" amount="4" basic="false"></MetalBracket>
+		<Nail name="Nail" amount="4" basic="false"></Nail>
+	</FoundationExpansion>
+	<FoundationRamp name="Foundation Ramp" basic="false">
+		<WoodPlank name="Wood Plank" amount="12" basic="false"></WoodPlank>
+		<MetalBracket name="Metal Bracket" amount="4" basic="false"></MetalBracket>
+		<Nail name="Nail" amount="20" basic="false"></Nail>
+	</FoundationRamp>
+	<FoundationStairs name="Foundation Stairs" basic="false">
+		<WoodPlank name="Wood Plank" amount="20" basic="false"></WoodPlank>
+		<MetalBracket name="Metal Bracket" amount="4" basic="false"></MetalBracket>
+		<Nail name="Nail" amount="12" basic="false"></Nail>
+	</FoundationStairs>
+	<Furnace name="Foundation Stairs" basic="false">
+		<MetalBracket name="Metal Bracket" amount="1" basic="false"></MetalBracket>
+		<ScrapMetal name="Scrap Metal" amount="8" basic="true"></ScrapMetal>
+	</Furnace>
+	<LookoutTower name="Lookout Tower" basic="false">
 		<MetalSheet name="Metal Sheet" amount="4" basic="false"></MetalSheet>
 		<WoodPlank name="Wood Plank" amount="8" basic="false"></WoodPlank>
 		<MetalBracket name="Metal Bracket" amount="8" basic="false"></MetalBracket>
 		<Nail name="Nail" amount="16" basic="false"></Nail>
+	</LookoutTower>
+	<LargeShelter name="Large Shelter" basic="false">
+		<MetalSheet name="Metal Sheet" amount="4" basic="false"></MetalSheet>
+		<WoodPlank name="Wood Plank" amount="4" basic="false"></WoodPlank>
+		<MetalBracket name="Metal Bracket" amount="4" basic="false"></MetalBracket>
+		<Nail name="Nail" amount="8" basic="false"></Nail>
 	</LargeShelter>
+	<BasicShack name="Basic Shack" basic="false">
+		<WoodPlank name="Wood Plank" amount="20" basic="false"></WoodPlank>
+		<WoodStick name="Wood Stick" amount="10" basic="false"></WoodStick>
+	</BasicShack>
+	<SmallShack name="Small Shack" basic="false">
+		<WoodPlank name="Wood Plank" amount="4" basic="false"></WoodPlank>
+		<MetalBracket name="Metal Bracket" amount="2" basic="false"></MetalBracket>
+		<Nail name="Nail" amount="4" basic="false"></Nail>
+	</SmallShack>
+	<Shack name="Shack" basic="false">
+		<MetalSheet name="Metal Sheet" amount="2" basic="false"></MetalSheet>
+		<WoodPlank name="Wood Plank" amount="8" basic="false"></WoodPlank>
+		<Nail name="Nail" amount="16" basic="false"></Nail>
+	</Shack>
+	<MetalGate name="Metal Gate" basic="false">
+		<MetalSheet name="Metal Sheet" amount="2" basic="false"></MetalSheet>
+		<WoodPlank name="Wood Plank" amount="4" basic="false"></WoodPlank>
+	</MetalGate>
+	<MetalWall name="Metal Wall" basic="false">
+		<MetalSheet name="Metal Sheet" amount="2" basic="false"></MetalSheet>
+		<WoodPlank name="Wood Plank" amount="2" basic="false"></WoodPlank>
+	</MetalWall>
+	<StructureStairs name="Structure Stairs" basic="false">
+		<WoodStick name="Wood Stick" amount="8" basic="false"></WoodStick>
+		<WoodPlank name="Wood Plank" amount="8" basic="false"></WoodPlank>
+		<MetalBracket name="Metal Bracket" amount="4" basic="false"></MetalBracket>
+		<Nail name="Nail" amount="4" basic="false"></Nail>
+	</StructureStairs>
+	<WoodenBarricade name="Wooden Barricade " basic="false">
+		<WoodPlank name="Wood Plank" amount="2" basic="false"></WoodPlank>
+		<Nail name="Nail" amount="4" basic="false"></Nail>
+	</WoodenBarricade>
+	<StorageContainer name="Wooden Door" basic="false">
+		<WoodPlank name="Wood Plank" amount="4" basic="false"></WoodPlank>
+		<MetalBracket name="Metal Bracket" amount="2" basic="false"></MetalBracket>
+		<Nail name="Nail" amount="2" basic="false"></Nail>
+	</StorageContainer>
 </Objects>

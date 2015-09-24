@@ -1,3 +1,4 @@
+/*jshint multistr: true */
 var xml = '<Objects>\
 <WoodLog name="Wood Log" basic="true"></WoodLog>\
 <ScrapMetal name="Scrap Metal" basic="true"></ScrapMetal>\
@@ -60,8 +61,8 @@ function loadXMLDoc(filename)
 	return xhttp.responseXML;
 }
 
-//var xmlDoc = loadXMLString(xml);
-var xmlDoc = loadXMLDoc("ressources.xml");
+var xmlDoc = loadXMLString(xml);
+//var xmlDoc = loadXMLDoc("ressources.xml");
 var objectNodes = xmlDoc.childNodes[0];
 var objectArray = [];
 var objectsList = document.getElementById("objectsList");
@@ -77,7 +78,7 @@ var objectTree = function(objectNodes) {
 			objectArray.push([object.getAttribute("name"), object]);
 			if(object.hasChildNodes())
 			{
-				var array = getMaterial(object)
+				var array = getMaterial(object);
 			}
 		}
 	}
@@ -94,44 +95,44 @@ var getMaterial = function(materials) {
 		} else {
 			var amount = 0;
 			var name = material.getAttribute("name");
-			if(material.getAttribute("amount") != null)
+			if(material.getAttribute("amount") !== null)
 			{
 				amount = material.getAttribute("amount");
 			}
 			if(material.getAttribute("basic") == "false")
 			{
 				var array = getMaterial(getObjectWithNodeName(name));
-				woodlog =  parseFloat(woodlog + ((array[0]  == 0 ? "" : array[0]) * amount));
-				scrapmetal =  parseFloat(scrapmetal + ((array[1]  == 0 ? "" : array[1]) * amount));
+				woodlog =  parseFloat(woodlog + ((array[0]  === 0 ? "" : array[0]) * amount));
+				scrapmetal =  parseFloat(scrapmetal + ((array[1]  === 0 ? "" : array[1]) * amount));
 			}
 			else if(material.getAttribute("basic") == "true")
 			{
 				if(name == "Scrap Metal")
 				{
-					scrapmetal = parseFloat(scrapmetal + (amount == 0 ? "" : amount));
+					scrapmetal = parseFloat(scrapmetal + (amount === 0 ? "" : amount));
 				}
 				if(name == "Wood Log")
 				{
-					woodlog += parseFloat(woodlog + (amount == 0 ? "" : amount));
+					woodlog += parseFloat(woodlog + (amount === 0 ? "" : amount));
 				}
 			}
 		}
-	};
+	}
 	if(!materials.hasChildNodes())
 	{
-		var name = materials.getAttribute("name");
-		if(name == "Scrap Metal")
+		var new_name = materials.getAttribute("name");
+		if(new_name == "Scrap Metal")
 		{
 			scrapmetal = 1;
 		}
-		if(name == "Wood Log")
+		if(new_name == "Wood Log")
 		{
 			woodlog += 1;
 		}
 	}
 	var matsArray = [woodlog, scrapmetal];
 	return matsArray;
-}
+};
 
 var getObjectWithNodeName = function(name) {
 	for(var i = 0; i < objectArray.length; i++)
@@ -142,37 +143,68 @@ var getObjectWithNodeName = function(name) {
 		}
 	}
 	return false;
-}
+};
 
 var getLog = function(objectNode) {
 	var log = 0;
 
 	return log;
-}
+};
 
 var addToList = function(btn) {
 	var toAdd = btn.getAttribute("id");
-	$("#currentList").append("<li class='list-group-item'><img class='thumb' src='img/" + toAdd + ".png'/>" + toAdd + "<button id='" + toAdd + " Sub'class='addBtn' onclick='deleteFromList(this)'>-</button></li>");
+	var amount = 0;
+	var pos = 0;
+	if($("#currentList > li").size() > 0)
+	{
+		for (var i = 0; i < $("#currentList > li > #curListName").size(); i++) {
+			if(toAdd == $("#currentList > li > #curListName")[i].innerHTML) {
+				pos = i;
+				amount = $("#currentList > li > #curListAmount")[i].innerHTML;
+			}
+		}
+	}
+
+	if(amount > 0)
+	{
+		$("#currentList > li > #curListAmount")[pos].innerHTML = parseInt(amount) + 1;
+	}
+	else
+	{
+		$("#currentList").append("<li class='list-group-item'><img class='thumb' src='img/" + toAdd + ".png'/><span id='curListAmount'>1</span> x <span id='curListName'>" + toAdd + "</span><button id='" + toAdd + " Sub'class='addBtn' onclick='deleteFromList(this)'>-</button></li>");	
+	}
+	
 	materialList.push(toAdd);
 	showMats();
-}
+};
 
 var deleteFromList = function(btn) {
 	var toDel = btn.getAttribute("id");
-	btn.parentNode.remove();
+	var amount = parseInt(btn.parentNode.childNodes[1].innerHTML);
+
+	if(amount > 1) {
+		btn.parentNode.childNodes[1].innerHTML = amount -1;
+	} else {
+		btn.parentNode.remove();
+	}
 	var removeThis = toDel.replace(" Sub", "");
 	var indexToRemove = materialList.indexOf(removeThis);
 	materialList.splice(indexToRemove, 1);
 	showMats();
-}
+};
 
 var fillList = function() {
+	objectArray.sort();
 	var length = objectArray.length;
+
 	for(var i = 0; i < length; i++)
 	{
-		$("#objectsList").append("<li class='list-group-item'><img class='thumb' src='img/" + objectArray[i][0] + ".png'/> " + objectArray[i][0] + "<button id='" + objectArray[i][0] + "'class='addBtn' onclick='addToList(this)'>+</button></li>");
+		var tooltip = "Materials: ";
+		tooltip += "\nWood Log: " + getMaterial(objectArray[i][1])[0];
+		tooltip += "\nScrap Metal: "+ getMaterial(objectArray[i][1])[1];
+		$("#objectsList").append("<li title='" + tooltip + "' class='list-group-item'><img class='thumb' src='img/" + objectArray[i][0] + ".png'/> " + objectArray[i][0] + "<button id='" + objectArray[i][0] + "'class='addBtn' onclick='addToList(this)'>+</button></li>");
 	}
-}
+};
 
 var showMats = function() {
 	var woodLogs = 0;
@@ -184,13 +216,13 @@ var showMats = function() {
 			if(objectArray[j][0] == materialList[i])
 			{
 				var array = getMaterial(objectArray[j][1]);
-				woodLogs = parseFloat(woodLogs + (array[0]  == 0 ? "" : array[0]));
-				scrapMetals =  parseFloat(scrapMetals + (array[1]  == 0 ? "" : array[1]));
+				woodLogs = parseFloat(woodLogs + (array[0]  === 0 ? "" : array[0]));
+				scrapMetals =  parseFloat(scrapMetals + (array[1]  === 0 ? "" : array[1]));
 			}
 		}
 	}
 	$("#ergebnis").html("Woods: " + woodLogs + " / Scraps: " + scrapMetals);
-}
+};
 
 objectTree(objectNodes);
 fillList();
