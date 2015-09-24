@@ -60,10 +60,10 @@
 		<Nail name="Nail" amount="16" basic="false"></Nail>
 	</LookoutTower>
 	<LargeShelter name="Large Shelter" basic="false">
-		<MetalSheet name="Metal Sheet" amount="4" basic="false"></MetalSheet>
-		<WoodPlank name="Wood Plank" amount="4" basic="false"></WoodPlank>
-		<MetalBracket name="Metal Bracket" amount="4" basic="false"></MetalBracket>
-		<Nail name="Nail" amount="8" basic="false"></Nail>
+		<MetalSheet name="Metal Sheet" amount="8" basic="false"></MetalSheet>
+		<WoodPlank name="Wood Plank" amount="8" basic="false"></WoodPlank>
+		<MetalBracket name="Metal Bracket" amount="8" basic="false"></MetalBracket>
+		<Nail name="Nail" amount="16" basic="false"></Nail>
 	</LargeShelter>
 	<BasicShack name="Basic Shack" basic="false">
 		<WoodPlank name="Wood Plank" amount="20" basic="false"></WoodPlank>
