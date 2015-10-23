@@ -134,6 +134,85 @@ var getMaterial = function(materials) {
 	return matsArray;
 };
 
+var getAllMaterial = function(materials) {
+	var woodlog = 0;
+	var woodplank = 0;
+	var woodstick = 0;
+	var scrapmetal = 0;
+	var metalshard = 0;
+	var metalbar = 0;
+	var metalbracket = 0;
+	var metalsheet = 0;
+	var nail = 0;
+
+	for (var i = 0; i < materials.children.length; i++) {
+		var material = materials.children[i];
+		if(material.nodeName == "#text") {
+
+		} else {
+			var amount = 0;
+			var name = material.getAttribute("name");
+			if(material.getAttribute("amount") !== null)
+			{
+				amount = material.getAttribute("amount");
+			}
+			if(true)
+			{
+				if(name == "Wood Log")
+				{
+					woodlog += parseFloat(woodlog + (amount === 0 ? "" : amount));
+				}
+				if(name == "Wood Plank")
+				{
+					woodplank += parseFloat(woodplank + (amount === 0 ? "" : amount));
+				}
+				if(name == "Wood Strick")
+				{
+					woodstick += parseFloat(woodstick + (amount === 0 ? "" : amount));
+				}
+				if(name == "Scrap Metal")
+				{
+					scrapmetal = parseFloat(scrapmetal + (amount === 0 ? "" : amount));
+				}
+				if(name == "Metal Shard")
+				{
+					metalshard = parseFloat(metalshard + (amount === 0 ? "" : amount));
+				}
+				if(name == "Metal Bracket")
+				{
+					metalbracket = parseFloat(metalbracket + (amount === 0 ? "" : amount));
+				}
+				if(name == "Metal Sheet")
+				{
+					metalsheet = parseFloat(metalsheet + (amount === 0 ? "" : amount));
+				}
+				if(name == "Metal Bar")
+				{
+					metalbar = parseFloat(metalbar + (amount === 0 ? "" : amount));
+				}
+				if(name == "Nail")
+				{
+					nail = parseFloat(nail + (amount === 0 ? "" : amount));
+				}
+			}
+		}
+	}
+	if(!materials.hasChildNodes())
+	{
+		var new_name = materials.getAttribute("name");
+		if(new_name == "Scrap Metal")
+		{
+			scrapmetal = 1;
+		}
+		if(new_name == "Wood Log")
+		{
+			woodlog += 1;
+		}
+	}
+	var matsArray = [woodlog, woodplank, woodstick, scrapmetal, metalshard, metalbracket, metalsheet, metalbar, nail];
+	return matsArray;
+};
+
 var getObjectWithNodeName = function(name) {
 	for(var i = 0; i < objectArray.length; i++)
 	{
@@ -209,6 +288,17 @@ var fillList = function() {
 var showMats = function() {
 	var woodLogs = 0;
 	var scrapMetals = 0;
+
+	var woodlog = 0;
+	var woodplank = 0;
+	var woodstick = 0;
+	var scrapmetal = 0;
+	var metalshard = 0;
+	var metalbar = 0;
+	var metalbracket = 0;
+	var metalsheet = 0;
+	var nail = 0;
+
 	for (var i = 0; i < materialList.length; i++)
 	{
 		for (var j = 0; j < objectArray.length; j++)
@@ -218,10 +308,33 @@ var showMats = function() {
 				var array = getMaterial(objectArray[j][1]);
 				woodLogs = parseFloat(woodLogs + (array[0]  === 0 ? "" : array[0]));
 				scrapMetals =  parseFloat(scrapMetals + (array[1]  === 0 ? "" : array[1]));
+
+				var array2 = getAllMaterial(objectArray[j][1]);
+				woodlog = parseFloat(woodlog + (array2[0]  === 0 ? "" : array2[0]));
+				woodplank = parseFloat(woodplank + (array2[1]  === 0 ? "" : array2[1]));
+				woodstick = parseFloat(woodstick + (array2[2]  === 0 ? "" : array2[2]));
+				scrapmetal = parseFloat(scrapmetal + (array2[3]  === 0 ? "" : array2[3]));
+				metalshard = parseFloat(metalshard + (array2[4]  === 0 ? "" : array2[4]));
+				metalbar = parseFloat(metalbar + (array2[5]  === 0 ? "" : array2[5]));
+				metalbracket = parseFloat(metalbracket + (array2[6]  === 0 ? "" : array2[6]));
+				metalsheet = parseFloat(metalsheet + (array2[7]  === 0 ? "" : array2[7]));
+				nail = parseFloat(nail + (array2[8]  === 0 ? "" : array2[8]));
+
 			}
 		}
 	}
-	$("#ergebnis").html("Woods: " + woodLogs + " / Scraps: " + scrapMetals);
+	$("#ergebnis").html("<b>To Farm:</b><br><img class='thumb' src='img/Wood Log.png'/> Wood Logs: <b>" + woodLogs + "</b><br><img class='thumb' src='img/Scrap Metal.png'/> Scrapmetal: <b>" + scrapMetals + "</b><br><br>" +
+		"<table id='table'>" + "<tr><th width='50px'></th><th width='150px'>Material</th><th>Amount</th></tr>" +
+		"<tr><td><img class='thumb' src='img/Wood Log.png'/></td><td>Wood Logs</td><td>" + woodlog + "</td>" +
+		"<tr><td><img class='thumb' src='img/Wood Plank.png'/></td><td>Wood Planks</td><td>" + woodplank + "</td>" +
+		"<tr><td><img class='thumb' src='img/Wood Stick.png'/></td><td>Wood Sticks</td><td>" + woodstick + "</td>" +
+		"<tr><td><img class='thumb' src='img/Scrap Metal.png'/></td><td>Scrap Metals</td><td>" + scrapmetal + "</td>" +
+		"<tr><td><img class='thumb' src='img/Metal Shard.png'/></td><td>Metal Shards</td><td>" + metalshard + "</td>" +
+		"<tr><td><img class='thumb' src='img/Metal Bar.png'/></td><td>Metal Bars</td><td>" + metalbar + "</td>" +
+		"<tr><td><img class='thumb' src='img/Metal Bracket.png'/></td><td>Metal Brackets</td><td>" + metalbracket + "</td>" +
+		"<tr><td><img class='thumb' src='img/Metal Sheet.png'/></td><td>Metal Sheets</td><td>" + metalsheet + "</td>" +
+		"<tr><td><img class='thumb' src='img/Nail.png'/></td><td>Nails</td><td>" + nail + "</td>" +
+		"</table>");
 };
 
 objectTree(objectNodes);
