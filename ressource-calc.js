@@ -209,7 +209,7 @@ var getAllMaterial = function(materials) {
 			woodlog += 1;
 		}
 	}
-	var matsArray = [woodlog, woodplank, woodstick, scrapmetal, metalshard, metalbracket, metalsheet, metalbar, nail];
+	var matsArray = [woodlog, woodplank, woodstick, scrapmetal, metalshard, metalbar, metalbracket, metalsheet, nail];
 	return matsArray;
 };
 
